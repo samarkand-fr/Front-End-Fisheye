@@ -1,37 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow"/>
+    <title>Fisheye, nouvelle plateforme de photographes</title>
+    <meta name="description" content="Fisheye par openclassrooms. La nouvelle plateforme de photographes">
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/0b6d538c32.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./assets/images/shortcutIcon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
+</head>
+
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="./index.html" tabindex="1">
+          <img src="./assets/images/logo.png" alt="Logo Fisheye Home page" class="logo">
+        </a>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
+    <main  id="main" aria-hidden="false">
+      <div class="photograph-header" aria-label="information photographer">
+        
+        <button class="btn-signup contact_button"  tabindex="0">Contactez-moi</button>
       </div>
+
+       <!-- Sort  -->
+      <section  class="photograph_medias">
+        <div class="sort" aria-label="selecteur de tri des photos">
+          <label  for="sorted">Trier par</label>  
+          <select  class="menuSelect" id="sorted" tabindex="0">
+              <option class="pop" value="pop" aria-label="popularité">Popularité</option>
+              <option class="date" value="date" aria-label="date">Date</option>
+              <option class="titre" value="titre" aria-label="titre">Titre</option>
+          </select>
+        </div>
+      </section>
+
+      
+      
+      <section  class="galleryPhotos" aria-label="gallery photos">
+      </section>
+      
+      <!-- Form -->
+        <div id="contact_modal"  tabindex="-1"  aria-label="modal transparent background">
+			    <div class="modal" role="dialog">
+				    <header>
+              <div id="header_modal">
+                <p class="contact" tabindex="1"></p>
+                <img class="close" src="./assets/icons/close.svg" tabindex="0" role="img" alt="fermer le formulaire"/>
+              </div>
+            </header>
+
+				    <form  name="reserve" action="photographer.html" method="get" >
+
+					    <div class="formData first-container">
+						    <label for="first" tabindex="0">Prénom</label><br>
+                <input class="text-control"   aria-label=" Entrez votre prénom" aria-labelledby="first" type="text" id="first" name="first" minlength="2" placeholder="votre prénom ici"  autocomplete="off" required /><br>
+                <span></span>
+						  </div>
+
+              <div class="formData last-container">
+                <label for="last" tabindex="0">Nom</label><br>
+                <input class="text-control" aria-label="Entrez votre nom" aria-labelledby="last"  type="text" id="last" name="last"  minlength="2" placeholder="votre nom ici"  autocomplete="off" required><br>
+                <span></span>
+              </div>
+
+              <div class="formData email-container">
+                <label for="email" tabindex="0">Email</label><br>
+                <input class="text-control" aria-labelledby="email" aria-label="Entrez votre adresse email" type="email" id="email" name="email" placeholder="Exemple : email@domaine.com" autocomplete="off" required/><br>
+                <span></span>
+              </div>
+
+              <div class=" formaData message-container">
+                <label for="message" tabindex="0">Votre message</label><br>
+                <textarea class="text-control" aria-labelledby="message"  aria-label="Détail de votre message" name="message" id="message" rows="10" cols="38" placeholder="Votre message ici" autocomplete="off" required></textarea>      
+                <span></span>
+              </div>
+              <input class="contact_button_form" type="submit"  aria-label="envoyer le formulaire" tabindex="0"  value="Envoyer">
+				    </form>
+			    </div>
+		    </div>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+    
+    <!-- Lightbox -->
+    <aside  id="contact_lightbox" aria-label="image closeup view"  tabindex="-1">
+      <div class="lightbox" role="dialog">
+            <button class="lightbox_close" aria-label="close dialog">Fermer</button>
+            <button class="lightbox_next" aria-label="next image">Suivant</button>
+            <button class="lightbox_prev" aria-label="previous image">Précédent</button>
+          <div class="lightbox_container" tabindex="-1"></div>
+      </div>
+    </aside>
+    
+    <footer aria-label="count likes & price">
+      <p id="total_likes" aria-label="number of likes"></p>
+      <span class="like">
+        <strong class="fas fa-heart heart-fas"></strong>
+      </span>
+      <span class="price-day" aria-label="price day"></span>
+    </footer>
+
+    
+     <script src="./scripts/pages/photographer.js" type="module"></script>
+    <!-- <script src="./scripts/utils/contactForm.js" type="module"></script> -->
+   </body>
 </html>
