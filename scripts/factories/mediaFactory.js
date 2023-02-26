@@ -1,112 +1,122 @@
-//    header of the photographer's card    
-export function getCardHeader(photographer) {
-    const { name, portrait, city, country, tagline } = photographer;
-    const picture = `assets/photographers/${portrait}`;
-  
-    const article = document.createElement('article');
-    const div = article.appendChild(document.createElement('div'));
-    div.className = 'info';
-    div.tabIndex = 2;
-    
-    div.appendChild(document.createElement('h1')).textContent = name;
-    div.appendChild(document.createElement('h2')).textContent = `${city}, ${country}`;
-    div.appendChild(document.createElement('p')).textContent = tagline;
-  
-    const img = article.appendChild(document.createElement('img'));
-    img.src = picture;
-    img.alt = name;
-  
-    return article;
-  }
-  
-
-
-// function that treats the media of each photographer 
+/**
+ * Factory function (function data medias)
+ */
 export function mediaFactory(data) {
-    const { id, photographerId, title, image, video, likes} = data;
+  const { id, photographerId, title, image, video, likes, date, price } = data;
   
-    const picture = `assets/medias/${photographerId}/${image}`;
-    const videos = `assets/medias/${photographerId}/${video}`;
-  
-    // DOM elements
+  const picture = `assets/medias/${photographerId}/${image} `; 
+  const videos = `assets/medias/${photographerId}/${video} `; 
+
+ 
+// Function photographer card 
+
+  const getUserCardDOM = () => {
     const article = document.createElement('article');
-    const div = document.createElement('div');
-    div.tabIndex = 0;
-    div.id = `media-${id}`;
-    const titleLikes = document.createElement('div');
-    titleLikes.className = 'title-likes';
-    const h2 = document.createElement('h2');
-    h2.textContent = title;
-    h2.tabIndex = 0;
-    const spanLikes = document.createElement('span');
-    spanLikes.title = 'number of like picture';
-    spanLikes.textContent = likes;
-    const like = document.createElement('span');
-    like.className = 'like';
-    like.setAttribute('aria-label', `${likes}like`);
-    const strong = document.createElement('strong');
-    strong.className = 'fas fa-heart heart-fas';
-    strong.setAttribute('aria-label', `${likes}like`);
-    strong.setAttribute('aria-hidden', true);
-    strong.tabIndex = 0;
   
-    // build DOM tree based on media type
+    const mediaContainer = document.createElement('div');
+    mediaContainer.setAttribute('tabindex', '0');
+    mediaContainer.setAttribute('id', `${id}`);
+    article.appendChild(mediaContainer);
+  
     if (video) {
-      const videoEl = document.createElement('video');
-      const source = document.createElement('source');
-      source.src = videos;
-      source.type = 'video/mp4';
-      source.title = `video de ${title}`;
-      source.tabIndex = 0;
-      videoEl.appendChild(source);
       const playIcon = document.createElement('strong');
-      playIcon.className = 'far fa-play-circle';
-      div.appendChild(playIcon);
-      div.appendChild(videoEl);
+      playIcon.classList.add('far', 'fa-play-circle');
+      mediaContainer.appendChild(playIcon);
+  
+      const videoElem = document.createElement('video');
+      const sourceElem = document.createElement('source');
+      sourceElem.setAttribute('src', videos);
+      sourceElem.setAttribute('type', 'video/mp4');
+      sourceElem.setAttribute('title', `video de ${title}`);
+      sourceElem.setAttribute('tabindex', '0');
+      videoElem.appendChild(sourceElem);
+      mediaContainer.appendChild(videoElem);
     } else {
-      const img = document.createElement('img');
-      img.src = picture;
-      img.alt = `Photo de ${title}`;
-      img.title = `picture de ${title}`;
-      img.id = id;
-      img.tabIndex = 0;
-      div.appendChild(img);
+      const imgElem = document.createElement('img');
+      imgElem.setAttribute('src', picture);
+      imgElem.setAttribute('alt', `Photo de ${title}`);
+      imgElem.setAttribute('title', `picture de ${title}`);
+      imgElem.setAttribute('id', id);
+      mediaContainer.appendChild(imgElem);
     }
   
-    // assemble the DOM tree
-    like.appendChild(strong);
-    titleLikes.appendChild(h2);
-    titleLikes.appendChild(spanLikes);
-    titleLikes.appendChild(like);
-    article.appendChild(div);
-    article.appendChild(titleLikes);
+    const titleLikesContainer = document.createElement('div');
+    titleLikesContainer.classList.add('title-likes');
+    article.appendChild(titleLikesContainer);
   
-    const getUserCardDOM = () => article;
+    const titleElem = document.createElement('h2');
+    titleElem.setAttribute('tabindex', '0');
+    titleElem.textContent = title;
+    titleLikesContainer.appendChild(titleElem);
   
-    return { getUserCardDOM, picture, videos };
-  }
+    const likesElem = document.createElement('span');
+    likesElem.setAttribute('title', 'number of like picture');
+    likesElem.textContent = likes;
+    titleLikesContainer.appendChild(likesElem);
   
+    const likeContainer = document.createElement('span');
+    likeContainer.classList.add('like');
+    titleLikesContainer.appendChild(likeContainer);
+  
+    const heartIcon = document.createElement('strong');
+    heartIcon.classList.add('fas', 'fa-heart', 'heart-fas');
+    heartIcon.setAttribute('tabindex', '0');
+    heartIcon.setAttribute('aria-label', `${likes}like`);
+    heartIcon.setAttribute('aria-hidden', 'true');
+    likeContainer.appendChild(heartIcon);
+    // the outerHTML property of the article element to get its HTML string representation, 
+    // and return that instead of the article element itself.
+    return article.outerHTML;
+  };
+  
+  const getUserCardLightbox = () => {
+    const slideDiv = document.createElement("div");
+    slideDiv.classList.add("slides");
+  
+    if (video) {
+      const videoEl = document.createElement("video");
+      videoEl.setAttribute('controls','controls');
+      const sourceEl = document.createElement("source");
+      sourceEl.src = videos;
+      sourceEl.type = "video/mp4";
+      sourceEl.title = `video de ${title}`;
+      videoEl.appendChild(sourceEl);
+      slideDiv.appendChild(videoEl);
+    } else {
+      const imgEl = document.createElement("img");
+      imgEl.src = picture;
+      imgEl.alt = `Photo de ${title}`;
+      imgEl.tabIndex = 0;
+      imgEl.title = `picture de ${title}`;
+      imgEl.id = id;
+      slideDiv.appendChild(imgEl);
+    }
+  
+    const titleEl = document.createElement("h3");
+    titleEl.textContent = title;
+    titleEl.tabIndex = 0;
+    slideDiv.appendChild(titleEl);
+  console.log(slideDiv);
+    return slideDiv.outerHTML;
+  };
+  
+       
+  return { id, photographerId, title, image, video, likes, date, price, getUserCardDOM, getUserCardLightbox };
+}
 
-// extra details of page photographer
+
+// // extra details of page photographer(footer tag/contact)
 export function photographerFactory(data) {
-    const { name, id, portrait, city, country, tagline, price } = data;
-    console.log(data);
-  
-    const priceDay = document.querySelector('.price-day');
-    priceDay.textContent = `${price} €/jour`;
-  
-    const contact = document.querySelector('.contact');
-    contact.textContent = `Contactez-moi ${name}`;
-  
-    const formModal = document.querySelector('.modal');
-    formModal.setAttribute('aria-label', `Contactez-moi, ${name}`);
-  
-    return { name, id, portrait, city, country, tagline, price };
-  }
-  
-    
+  const { name, id, portrait, city, country, tagline, price } = data;
 
+  const priceDay = document.querySelector('.price-day');
+        priceDay.textContent = `${price} €/jour`;
 
+  const contact = document.querySelector('.contact');
+        contact.textContent = `Contactez-moi ${name}`;
 
+  const formModal = document.querySelector('.modal');
+        formModal.setAttribute('aria-label', `Contactez-moi, ${name}`);
 
-    
+  return { name, id, portrait, city, country, tagline, price };
+}

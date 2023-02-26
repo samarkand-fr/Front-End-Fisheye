@@ -1,23 +1,17 @@
-export async function getPhotographers() {
-    return fetch('data/photographers.json' , {mode: 'cors'})
-        .then((res) => {
-            console.log(res);
-            return res.json();
-        })
-        .then((datas) => {
-            // console.log(datas);
-            return datas;
-        }); 
 
+const url = 'data/photographers.json';
+//  the await keyword to wait for the fetch method 
+// to return a response before parsing the JSON data with the json() method.
+// // get data photographer
+export async function getPhotographers() {
+  const response = await fetch(url, { mode: 'cors' });
+  const data = await response.json();
+  return data;
 }
 
-// get data media
+// // get data media
 export async function getMedias() {
-    return fetch ('data/photographers.json' , {mode: 'cors'})
-        .then((res) => {
-            return res.json();
-        })
-        .then((datas) => {
-            return datas.media;
-        }); 
+  const response = await fetch(url, { mode: 'cors' });
+  const data = await response.json();
+  return data.media;
 }

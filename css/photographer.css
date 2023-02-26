@@ -16,6 +16,7 @@ a{
 }
 
 header .logo{
+   margin-top: 20px;
     height: 50px;
     cursor: pointer;
 }
@@ -70,19 +71,12 @@ header .logo{
 }
 
 /***********Sort***********/
-.photograph_medias label{
+/* /* .photograph_medias label{
     font-size: 1.5rem;
-}
 
-.sort {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 100px;
-}
 
 .menuSelect{
-    background-color:  #901C1C;
+    background-color:  #901C1C; 
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
@@ -95,6 +89,10 @@ header .logo{
     transition: 0.8s;
     cursor: pointer;
 }
+select::-ms-expand {
+    display: none;
+  }
+  
 
 select {
     -webkit-appearance: none;
@@ -112,18 +110,20 @@ select {
 .actived {
     background: url("../assets/icons/chevron-up.svg")  no-repeat 90%;
     background-color: #901C1C;
+
 }
 
 .menuSelect:hover{
-    background-color:  #901C1C;
+    background-color:  #D3573C;
     transform: scale(1.02);
     box-shadow: 1px 1px 8px 0px  #312e2e;
-    
+
 }
 
 .pop, .date, .titre{
-    font-size: 1.3rem;   
-}
+    font-size: 1.3rem;
+  
+} */
 
 
 /********Gallery photos***********/
@@ -141,14 +141,14 @@ select {
 .galleryPhotos article img, video{
     height: 300px;
     width: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     cursor: pointer;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.028);
     border-radius: 5px;
     transition: 0.8s;
 }
 
-.galleryPhotos article img:hover, 
+.galleryPhotos article img:hover,
  video:hover{
     transform: scale(1.02);
     box-shadow: 1px 1px 8px 0px  #312e2e;
@@ -205,11 +205,58 @@ select {
 }
 
 
+/*******Error Form*********/
 
+ .error input, .error textarea{
+    border: 3px solid red;
+  }
 
+  .formData[data-error]::after {
+    content: attr(data-error);
+    color: #901C1C;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.8;
+    opacity: 0;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+  }
+  .formData[data-error-visible="false"]::after {
+    opacity: 0;
+  }
+  .formData[data-error-visible="false"] .text-control {
+    border: 2px solid  #279e7a ;
+  }
+  input[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: red;
+  }
+
+ textarea[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: red;
+}
 /*******************Modal form******************/
 
 
+#contact_modal {
+    display: none;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 8;
+}
 
 .contact_button {
     font-size: 1.2rem;
@@ -228,7 +275,7 @@ select {
     transition: 0.8s;
 }
 
-.contact_button:hover{
+.contact_button:hover,.contact_btn_form:hover{
     background-color: #D3573C;
     transform: scale(1.02);
     box-shadow: 1px 1px 8px 0px  #312e2e;
@@ -239,7 +286,7 @@ select {
     transform: scale(1.1);
 }
 
-.contact_button_form {
+.contact_btn_form {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
@@ -251,15 +298,201 @@ select {
     border-radius: 5px;
     cursor: pointer;
     position: absolute;
-    bottom: 5px;
+    bottom: 3px;
     right: auto;
 }
 
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 660px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px 35px 100px 35px;;
+    margin: auto;
+    margin-bottom: -16px;
+    animation-name: modalopen;
+    animation-duration: 0.8s;
+}
 
+.modal header {
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
 
+.modal header img {
+    cursor: pointer;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
 
+.modal header p {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
 
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
+form label {
+    color: #312E2E;
+    font-size: 36px;
+    margin-bottom: -20px;
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+}
+
+form input {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+.text-control {
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 48px;
+  }
+  .text-control-textarea{
+   align-self: center;
+   font-size: 1.7rem;
+   height: 150px;
+   width:99%;
+   border-radius: 8px;
+   font-size: 20px;
+  }
+
+.contact_modal{
+    display: block;
+}
+
+@keyframes modalopen {
+    from {
+      opacity: 0;
+      transform: translateY(-150px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /**********Lightbox************/
+
+#contact_lightbox{
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    width: 100%;
+}
+
+.lightbox_container{
+    margin-top: 150px;
+}
+
+.lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10;
+    animation-name: modalopen;
+    animation-duration: 0.8s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox_next,
+.lightbox_prev{
+    border: none;
+    background: url(../assets/icons/arrow.svg) center center/30px 38px no-repeat;
+    height: 38px;
+    position: absolute;
+    top: 50%;
+    right: 120px;
+    margin-top: -14px;
+    z-index: 11;
+}
+
+.lightbox_prev{
+    right: auto;
+    left: 120px;
+    transform: rotate(180deg);
+}
+
+.lightbox_close{
+    border: none;
+    background: url(../assets/icons/close_lightbox.svg) center center/32px 32px no-repeat transparent;
+    width: 42px;
+    height: 42px;
+    top: 20px;
+    right: 120px;
+    z-index: 12;
+    position: absolute;
+}
+
+.lightbox button{
+    opacity: 1;
+    cursor: pointer;
+    transition: 0.3s;
+    color: transparent;
+}
+
+.lightbox button:hover{
+    opacity: 0.6;
+}
+
+.lightbox_container img{
+    max-width: 100%;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.lightbox_container img .hidden{
+    visibility: hidden;
+}
+
+.lightbox_container video{
+    max-width: 100%;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+}
+
+.lightbox_container .slides{
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lightbox_container h3{
+    color: #901C1C;
+}
 
 /************Like and price*************/
 footer{
@@ -293,7 +526,7 @@ footer p{
 }
 
  /**********Responsive***********/
-  
+
 @media screen and (max-width: 1220px){
     .galleryPhotos{
         display: grid;
@@ -351,14 +584,23 @@ footer p{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .lightbox_next,
+    .lightbox_prev{
+        right: 0px;
+    }
+
+    .lightbox_prev{
+        left: 0px;
+    }
 }
 
 @media screen and (max-width: 715px){
     header .logo{
-       
+
         margin: 10px 0 20px 66px;
     }
-    
+
     .photograph-header{
         height: 400px;
         width: 351px;
@@ -377,7 +619,7 @@ footer p{
         margin: auto;
         margin-right: 20px;
     }
-    
+
     .photograph-header article h1{
         font-size: 2.5rem;
     }
@@ -399,6 +641,34 @@ footer p{
         margin: auto;
     }
 
+    .modal{
+        width: 100%;
+    }
+    textarea{
+        width: 100%;
+    }
+
+
+    .modal header p{
+        margin-top: 70px;
+        font-size: 3rem;
+    }
+
+    .modal header img{
+        right: 0px;
+    }
+
+    form input::placeholder{
+        font-size: 1.5rem;
+    }
+
+    .error span{
+        font-size: 0.7rem;
+    }
+
+    .lightbox_close{
+        right: 0px;
+    }
 }
 
 
@@ -428,7 +698,7 @@ footer p{
     .modal header p{
         font-size: 2rem;
     }
-    
+
     .modal header img{
         height: 32px;
         right: -2.5px;
@@ -436,6 +706,19 @@ footer p{
 
     .error span{
         font-size: 0.6rem;
+    }
+
+    .lightbox_next,
+    .lightbox_prev{
+        right: 0px;
+    }
+
+    .lightbox_prev{
+        left: 0px;
+    }
+
+    .lightbox_close{
+        right: 0px;
     }
 
     .galleryPhotos{
@@ -472,6 +755,10 @@ footer p{
     .photograph_medias label{
         font-size: 1.2rem;
     }
+
+    .error span{
+        font-size: 0.5rem;
+    }
 }
 
 @media screen and (max-width: 375px){
@@ -486,7 +773,7 @@ footer p{
     .photograph-header .info{
         text-align: center;
     }
-   
+
     .contact_button{
         left: 121px;
     }
@@ -505,5 +792,168 @@ footer p{
     .galleryPhotos{
         margin-left: 11px;
     }
-    
-}   
+
+}
+
+.actived {
+   
+    background-color: #D3573C;
+
+}
+ .photograph_medias label{
+    font-size: 1.5rem;
+}
+.sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-select {
+    position: relative;
+    margin-bottom: 140px ;
+    margin-top: 30px;
+    margin-left: 100px;
+  }
+  .custom-select li {
+    list-style-type: none;
+  }
+  .select {
+    width: 170px;
+    height: 73px;
+    cursor: pointer;
+    background-color: #911C1C;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .select_expand {
+    width: 0;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    right: 0
+  }
+  .select_expand::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f104";
+    position: absolute;
+    top: 50%;
+    right:10px;
+    transform: translate(-50%, -50%) rotate(90deg);
+    color: #fff;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 2;
+    color: #fff;
+    transition: all 250ms ease-in-out;
+  }
+  .select_expand:checked::after {
+    transform: translate(-50%, -50%) rotate(90deg) scaleX(-1);
+  }
+  .select_expandLabel {
+    display: block;
+    width: 100%;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .select_close {
+    display: none;
+  }
+  .select_closeLabel {
+    width: 170px;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+  .select_items {
+    width: 170px;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    padding-top: 69px;
+  }
+  .select_input {
+    display: none;
+  }
+  .select_label {
+    display: block;
+    height: 0;
+    font-size: 1.2rem;
+    line-height: 69px;
+    overflow: hidden;
+    color: #fff;
+    background-color: #fff;
+    cursor: pointer;
+    padding-left: 20px;
+  }
+  .select_label-placeholder {
+    height: 69px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+  }
+
+  .select_expand:checked + .select_closeLabel {
+    display: block;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options {
+    background: #911C1C;
+    border-radius: 0 0 5px 5px;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options .select_label {
+    height: 69px;
+    background: transparent;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options .select_label:hover {
+    background-color:#D3573C;
+    color: #000;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options + .select_expandLabel {
+    display: none;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options + .select_option {
+    border-radius: 5px;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options .select_option:nth-child(2) .select_label:hover {
+    border-radius: 0 0 5px 5px;
+  }
+  .select_input:checked + .select_label {
+    height: 69px;
+    margin-top: -69px;
+    background-color: #911C1C;
+    border-radius: 5px;
+  }
+  .select .border-top {
+    display: block;
+    height: 100%;
+    width: 85%;
+    border-top: 1px solid #fff;
+  }
+  .select_input:checked + .select_label .border-top {
+    border-top: none;
+  }
+  
+
+  .select_expandLabel{
+    margin-bottom: 150px;
+    z-index: 99px;
+  }
+
+
+
+
+
+
+
