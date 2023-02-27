@@ -1,32 +1,29 @@
+import {createHeadingElement,createtagElement} from "../utils/createElements.js";
 
-export function getCardHeader(photographer) {
+ export function getCardHeader(photographer) {
     const { name, portrait, city, country, tagline } = photographer;
     const pictureSrc = `assets/photographers/${portrait}`;
 
   const getUserCardDOM= ()=>{
+
     const article = document.createElement('article');
-    article.setAttribute('tabindex', '2');
-  
+          article.setAttribute('tabindex', '2');
     const infoDiv = document.createElement('div');
-    infoDiv.classList.add('info');
+          infoDiv.classList.add('info');
   
-    const nameHeader = document.createElement('h1');
-    nameHeader.textContent = name;
+    const nameHeader = createHeadingElement('h1',name);
+    const locationHeader = createHeadingElement('h2',`${city}, ${country}`);
+    const taglineParagraph = createHeadingElement('p',tagline);
   
-    const locationHeader = document.createElement('h2');
-    locationHeader.textContent = `${city}, ${country}`;
-  
-    const taglineParagraph = document.createElement('p');
-    taglineParagraph.textContent = tagline;
-  
-    const pictureImg = document.createElement('img');
-    pictureImg.setAttribute('src', pictureSrc);
-    pictureImg.setAttribute('alt', name);
-  
+    const pictureImg  = createtagElement('img', [
+          { name: 'src', value: pictureSrc},
+          { name: 'alt', value: name },
+        ]);
+
     infoDiv.appendChild(nameHeader);
     infoDiv.appendChild(locationHeader);
     infoDiv.appendChild(taglineParagraph);
-  
+        
     article.appendChild(infoDiv);
     article.appendChild(pictureImg);
   
@@ -35,4 +32,3 @@ export function getCardHeader(photographer) {
 
   return {getUserCardDOM};
   }
-  

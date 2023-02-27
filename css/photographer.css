@@ -215,7 +215,7 @@ select {
     content: attr(data-error);
     color: #901C1C;
     display: block;
-    margin-top: -10px;
+    margin-top: 5px;
     margin-bottom: 7px;
     text-align: left;
     line-height: 0.8;

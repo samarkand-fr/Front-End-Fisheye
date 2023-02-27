@@ -69,14 +69,13 @@ export function openLightbox(id, medias) {
     // add the listeners 
     if (component) {
         component.addEventListener('click', displayLightBox);
-        component.addEventListener('keydown', ((e) =>{displayByKeydown(e);}));
+        component.addEventListener('keydown', ((e) =>{ 
+             if (e.key === 'Enter') {
+            displayLightBox();
+        };}));
     }
-}
 
-const displayByKeydown = (e) => {
-    if (e.key === 'Enter') {
-        displayLightBox();
-    }
+
 };
 
 //   KeyboardEvent closeMlightbox
