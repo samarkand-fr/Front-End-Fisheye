@@ -71,60 +71,157 @@ header .logo{
 }
 
 /***********Sort***********/
-/* /* .photograph_medias label{
+.photograph_medias label{
     font-size: 1.5rem;
-
-
-.menuSelect{
-    background-color:  #901C1C; 
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-left: 20px;
-    width: 180px;
-    position: relative;
-    z-index: 1;
-    padding: 15px 0;
-    padding-left: 20px;
-    transition: 0.8s;
-    cursor: pointer;
 }
-select::-ms-expand {
+.sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    /* padding-bottom: 50px; */
+}
+
+.custom-select {
+    position: relative;
+    margin-bottom: 136px ; 
+    margin-top: 30px;
+    margin-left: 100px;
+  }
+  .custom-select li {
+    list-style-type: none;
+  }
+  .select {
+    width: 170px;
+    height: 73px;
+    cursor: pointer;
+    background-color: #911C1C;
+    border-radius: 5px;
+    position: relative;
+    right: 0;
+  }
+
+  .select_expand {
+    width: 0;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .select_expand::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f104";
+    position: absolute;
+    top: 50%;
+    right:10px;
+    transform: translate(-50%, -50%) rotate(90deg);
+    color: #fff;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 2;
+    color: #fff;
+    transition: all 250ms ease-in-out;
+  }
+  .select_expand:checked::after {
+    transform: translate(-50%, -50%) rotate(90deg) scaleX(-1);
+  }
+  .select_expandLabel {
+    display: block;
+    width: 100%;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .expanded{
+     padding-bottom: 150px;
+ }
+  .select_close {
     display: none;
   }
-  
-
-select {
-    -webkit-appearance: none;
-    appearance: none;
-    background: url("../assets/icons/chevron-down.svg")  no-repeat 90% #901C1C;
-    border: none;
-    color: white;
-    padding: 2%;
-    font-weight: 500;
-    font-size: 1.3rem;
+  .select_closeLabel {
+    width: 170px;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+  .select_items {
+    width: 170px;
+    height: 69px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    padding-top: 69px;
+  }
+  .select_input {
+    display: none;
+  }
+  .select_label {
+    display: block;
+    height: 0;
+    font-size: 1.2rem;
+    line-height: 69px;
+    overflow: hidden;
+    color: #fff;
+    background-color: #fff;
     cursor: pointer;
+    padding-left: 20px;
+  }
+  .select_label-placeholder {
+    height: 69px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+  }
+  /* display the close button when the dropdown menu is opened */
+  .select_expand:checked + .select_closeLabel {
+    display: block;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options {
+    background: #911C1C;
+    border-radius: 0 0 5px 5px;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options .select_label {
+    height: 69px;
+    background: transparent;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options .select_label:hover {
+    background-color:#D3573C;
+    color: #000;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options + .select_expandLabel {
+    display: none;
+  }
+  .select_expand:checked + .select_closeLabel + .select_options + .select_option {
     border-radius: 5px;
   }
+  .select_expand:checked + .select_closeLabel + .select_options .select_option:nth-child(2) .select_label:hover {
+    border-radius: 0 0 5px 5px;
+    
+  }
+  .select_input:checked + .select_label {
+    height: 69px;
+    margin-top: -69px;
+    background-color: #911C1C;
+    border-radius: 5px;
+  }
+  .select .border-top {
+    display: block;
+    height: 100%;
+    width: 85%;
+    border-top: 1px solid #fff;
+  }
+  .select_input:checked + .select_label .border-top {
+    border-top: none;
+  }
   
-.actived {
-    background: url("../assets/icons/chevron-up.svg")  no-repeat 90%;
-    background-color: #901C1C;
-
-}
-
-.menuSelect:hover{
-    background-color:  #D3573C;
-    transform: scale(1.02);
-    box-shadow: 1px 1px 8px 0px  #312e2e;
-
-}
-
-.pop, .date, .titre{
-    font-size: 1.3rem;
-  
-} */
-
 
 /********Gallery photos***********/
 .galleryPhotos{
@@ -524,436 +621,4 @@ footer p{
     font-size: 1.5rem;
     margin-right: 40px;
 }
-
- /**********Responsive***********/
-
-@media screen and (max-width: 1220px){
-    .galleryPhotos{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 1120px){
-    .photograph-header .info{
-        margin-top: 20px;
-    }
-    .contact_button{
-        bottom: 20px;
-        left: 70px;
-    }
-
-    .sort{
-        margin-top: 20px;
-    }
-}
-
-@media screen and (max-width: 830px){
-    .photograph-header article h1{
-        font-size: 3rem;
-    }
-
-    .photograph-header article h2{
-        font-size: 1.2rem;
-    }
-
-    .photograph-header article p{
-        font-size: 0.9rem;
-    }
-
-    .photograph-header .info{
-        margin-left: 20px;
-        text-align: center;
-    }
-
-    .contact_button{
-        width: 150px;
-        height: 60px;
-        font-size: 1rem;
-        top: 160px;
-        left: 114px;
-    }
-
-    .photograph-header article img{
-        height: 180px;
-        width: 180px;
-        right: 20%;
-    }
-
-    .galleryPhotos{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .lightbox_next,
-    .lightbox_prev{
-        right: 0px;
-    }
-
-    .lightbox_prev{
-        left: 0px;
-    }
-}
-
-@media screen and (max-width: 715px){
-    header .logo{
-
-        margin: 10px 0 20px 66px;
-    }
-
-    .photograph-header{
-        height: 400px;
-        width: 351px;
-    }
-
-    .photograph-header .info{
-        margin: auto;
-    }
-
-    .photograph-header article img{
-        bottom: 35px;
-        left: 20px;
-        height: 150px;
-        width: 150px;
-        display: block;
-        margin: auto;
-        margin-right: 20px;
-    }
-
-    .photograph-header article h1{
-        font-size: 2.5rem;
-    }
-
-    .photograph-header article h2{
-        font-size: 2.5rem;
-    }
-
-    .photograph-header article p{
-        font-size: 1rem;
-        line-height: 30px;
-    }
-
-    .contact_button{
-        width: 120px;
-        height: 50px;
-        font-size: 0.7rem;
-        top: -81px;
-        margin: auto;
-    }
-
-    .modal{
-        width: 100%;
-    }
-    textarea{
-        width: 100%;
-    }
-
-
-    .modal header p{
-        margin-top: 70px;
-        font-size: 3rem;
-    }
-
-    .modal header img{
-        right: 0px;
-    }
-
-    form input::placeholder{
-        font-size: 1.5rem;
-    }
-
-    .error span{
-        font-size: 0.7rem;
-    }
-
-    .lightbox_close{
-        right: 0px;
-    }
-}
-
-
-@media screen and (max-width: 600px){
-    .photograph-header{
-        margin-left: 77px;
-    }
-
-    .galleryPhotos{
-        margin-left: 77px;
-    }
-}
-
-@media screen and (max-width: 425px){
-    header .logo{
-        margin-left: 0px;
-    }
-
-    .photograph-header{
-        margin-left: 20px;
-    }
-
-    .photograph-header article img{
-        left: 40px;
-    }
-
-    .modal header p{
-        font-size: 2rem;
-    }
-
-    .modal header img{
-        height: 32px;
-        right: -2.5px;
-    }
-
-    .error span{
-        font-size: 0.6rem;
-    }
-
-    .lightbox_next,
-    .lightbox_prev{
-        right: 0px;
-    }
-
-    .lightbox_prev{
-        left: 0px;
-    }
-
-    .lightbox_close{
-        right: 0px;
-    }
-
-    .galleryPhotos{
-        margin-left: 20px;
-    }
-
-    .sort{
-        margin-left: 20px;
-    }
-}
-
-@media screen and (max-width: 400px){
-    header .logo{
-        height: 40px;
-    }
-
-    .contact_button{
-        width: 100px;
-        height: 40px;
-        font-size: 0.6rem;
-    }
-
-    .photograph-header article img{
-        height: 130px;
-        width: 130px;
-        bottom: 70px;
-        left: 30px;
-    }
-
-    .photograph-header article p{
-        font-size: 0.5rem;
-    }
-
-    .photograph_medias label{
-        font-size: 1.2rem;
-    }
-
-    .error span{
-        font-size: 0.5rem;
-    }
-}
-
-@media screen and (max-width: 375px){
-    header .logo{
-        height: 30px;
-        margin: 10px 0 20px 34px;
-    }
-
-    .photograph-header{
-        margin-left: 20px;
-    }
-    .photograph-header .info{
-        text-align: center;
-    }
-
-    .contact_button{
-        left: 121px;
-    }
-
-    .photograph-header article img{
-        left: 30px;
-        height: 110px;
-        width: 110px;
-        margin-left: 100px;
-    }
-
-    .galleryPhotos{
-        margin-left: 11px;
-    }
-
-    .galleryPhotos{
-        margin-left: 11px;
-    }
-
-}
-
-.actived {
-   
-    background-color: #D3573C;
-
-}
- .photograph_medias label{
-    font-size: 1.5rem;
-}
-.sort {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
-
-.custom-select {
-    position: relative;
-    margin-bottom: 140px ;
-    margin-top: 30px;
-    margin-left: 100px;
-  }
-  .custom-select li {
-    list-style-type: none;
-  }
-  .select {
-    width: 170px;
-    height: 73px;
-    cursor: pointer;
-    background-color: #911C1C;
-    border-radius: 5px;
-    position: relative;
-  }
-
-  .select_expand {
-    width: 0;
-    height: 69px;
-    position: absolute;
-    top: 0;
-    right: 0
-  }
-  .select_expand::after {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f104";
-    position: absolute;
-    top: 50%;
-    right:10px;
-    transform: translate(-50%, -50%) rotate(90deg);
-    color: #fff;
-    font-size: 20px;
-    pointer-events: none;
-    z-index: 2;
-    color: #fff;
-    transition: all 250ms ease-in-out;
-  }
-  .select_expand:checked::after {
-    transform: translate(-50%, -50%) rotate(90deg) scaleX(-1);
-  }
-  .select_expandLabel {
-    display: block;
-    width: 100%;
-    height: 69px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-  }
-  .select_close {
-    display: none;
-  }
-  .select_closeLabel {
-    width: 170px;
-    height: 69px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-  }
-  .select_items {
-    width: 170px;
-    height: 69px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 5px;
-    padding-top: 69px;
-  }
-  .select_input {
-    display: none;
-  }
-  .select_label {
-    display: block;
-    height: 0;
-    font-size: 1.2rem;
-    line-height: 69px;
-    overflow: hidden;
-    color: #fff;
-    background-color: #fff;
-    cursor: pointer;
-    padding-left: 20px;
-  }
-  .select_label-placeholder {
-    height: 69px;
-    vertical-align: middle;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-  }
-
-  .select_expand:checked + .select_closeLabel {
-    display: block;
-  }
-  .select_expand:checked + .select_closeLabel + .select_options {
-    background: #911C1C;
-    border-radius: 0 0 5px 5px;
-  }
-  .select_expand:checked + .select_closeLabel + .select_options .select_label {
-    height: 69px;
-    background: transparent;
-  }
-  .select_expand:checked + .select_closeLabel + .select_options .select_label:hover {
-    background-color:#D3573C;
-    color: #000;
-  }
-  .select_expand:checked + .select_closeLabel + .select_options + .select_expandLabel {
-    display: none;
-  }
-  .select_expand:checked + .select_closeLabel + .select_options + .select_option {
-    border-radius: 5px;
-  }
-  .select_expand:checked + .select_closeLabel + .select_options .select_option:nth-child(2) .select_label:hover {
-    border-radius: 0 0 5px 5px;
-  }
-  .select_input:checked + .select_label {
-    height: 69px;
-    margin-top: -69px;
-    background-color: #911C1C;
-    border-radius: 5px;
-  }
-  .select .border-top {
-    display: block;
-    height: 100%;
-    width: 85%;
-    border-top: 1px solid #fff;
-  }
-  .select_input:checked + .select_label .border-top {
-    border-top: none;
-  }
-  
-
-  .select_expandLabel{
-    margin-bottom: 150px;
-    z-index: 99px;
-  }
-
-
-
-
-
-
 

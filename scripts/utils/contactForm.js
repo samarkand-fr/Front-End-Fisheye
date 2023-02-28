@@ -1,32 +1,37 @@
+// DOM elements
 const closeBtn = document.querySelector('.close');
 const contactBtn = document.querySelector('.contact_button');
 const modalbg = document.querySelector('#contact_modal');
 const inputs = Array.from(document.forms.reserve.querySelectorAll('input,textarea'));
 const form = document.querySelector('form');
+const firstName = document.getElementById('first');
 
 // object of input data
 const inputValues = {};
-// 
-/**
- * open modale
- */
-function launchModal() {
-    modalbg.style.display = 'block';
-}
-
-contactBtn.addEventListener('click', launchModal);
-
-/**
-   * close modale
-   */
-function closeModal() {
-    modalbg.style.display = 'none';
-}
-  
+ 
+// *****************************************************
+// Event listeners
+window.addEventListener('keyup', closeModalKey);
+contactBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
-  
-/*********************************************** ***/
 
+// Functions
+function closeModalKey(e) {
+  if (modalbg.style.display === 'block' && e.key === 'Escape') {
+    closeModal();
+  }
+}
+function openModal() {
+  modalbg.style.display = 'block';
+  firstName.focus();
+}
+function closeModal() {
+  modalbg.style.display = 'none';
+}
+
+
+// /*************************************************
+// error messages object
 const errorMessages = {
     firstName:{
         error1:'Veuillez entrer votre prénom',
@@ -203,16 +208,4 @@ form.addEventListener('submit', function (e) {
     }
 });
 
-
-//   Close modale form with Escape
-
-window.addEventListener('keyup', (e) => {
-    closeModalKey(e);
-});
-  
-function closeModalKey(e) {
-    if ((modalbg.style.display = 'block' && e.key === 'Escape')) {
-        closeModal();
-    }
-}
 

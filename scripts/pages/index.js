@@ -1,3 +1,4 @@
+ // Import statements
  import {getCard} from "../factories/photographerFactory.js";
  import { getPhotographers } from "../utils/api.js";
  
@@ -10,7 +11,6 @@ async function displayData(photographers) {
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-        
 }
 
 async function init() {

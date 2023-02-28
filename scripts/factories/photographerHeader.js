@@ -1,3 +1,4 @@
+// Import statements
 import {createHeadingElement,createtagElement} from "../utils/createElements.js";
 
  export function getCardHeader(photographer) {
@@ -18,6 +19,7 @@ import {createHeadingElement,createtagElement} from "../utils/createElements.js"
     const pictureImg  = createtagElement('img', [
           { name: 'src', value: pictureSrc},
           { name: 'alt', value: name },
+          { name: 'loading', value: 'lazy' },
         ]);
 
     infoDiv.appendChild(nameHeader);
@@ -29,6 +31,5 @@ import {createHeadingElement,createtagElement} from "../utils/createElements.js"
   
     return article;
   }
-
   return {getUserCardDOM};
   }

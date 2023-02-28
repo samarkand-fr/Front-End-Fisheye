@@ -17,7 +17,8 @@ export function getCard(photographer) {
               { name: 'src', value: picture },
               { name: 'alt', value: `picture ${name}` },
               { name: 'title', value:'picture de photographer' },
-              { name: 'id', value: id }
+              { name: 'id', value: id },
+              { name: 'loading', value: 'lazy' },
             ]);
         link.appendChild(image);
     
@@ -40,7 +41,6 @@ export function getCard(photographer) {
     
         return article;
     };
-    
   
     return { name, picture, getUserCardDOM };
   }

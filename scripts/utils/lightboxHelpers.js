@@ -1,6 +1,6 @@
-import {lightboxCard} from "../factories/lightboxfactory.js"
+import {lightboxCard} from "../factories/lightboxfactory.js";
 
-//   Retrieves the position of the current image and return an integer 
+// getPosition()  Retrieves the position of the current image and return an integer 
 export const getPosition = (medias) => {
     const currentId = document.querySelector('.slides > :first-child').id;
     
@@ -46,7 +46,7 @@ const updateLightbox = (card) => {
   };
 
     
-//retrieves the next and previous buttons from the lightbox navigation 
+//getNavLightbox()  retrieves the next and previous buttons from the lightbox navigation 
  export const getNavLightbox = () => {
     const nextButton = document.getElementsByClassName('lightbox_next')[0];
     const prevButton = document.getElementsByClassName('lightbox_prev')[0];

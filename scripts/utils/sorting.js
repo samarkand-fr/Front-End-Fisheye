@@ -1,23 +1,23 @@
 import { displayMedia} from '../pages/photographer.js';
  
 export const menuSelect = document.querySelector('.menuSelect');
-const sorted = document.querySelector('#sorted');
 
-    sorted.addEventListener('click', () => {
-    console.log('sort');
- 
-});
+const selectLabel = document.querySelector('.select_expandLabel');
+      selectLabel.addEventListener('click', () => {
+      selectLabel.classList.toggle('expanded');
+  });
 
-
+// select a type of media inorder to sort it by calling function sortingMedia
 export function selectMedia(media) {
     const selectedType = menuSelect.querySelector('input:checked').value;
-    const sortedMedia = sortMedia(media, selectedType);
+    const sortedMedia = sortingMedia(media, selectedType);
        displayMedia(sortedMedia);
     }
 
 //   function to  sort the media(an array of objects)
 // callback  function  determine the order in which the elements are sorted
-export function sortMedia(media, type) {
+export function sortingMedia(media, type) {
+    console.log(type);
     switch (type) {
     case 'pop':
     return media.sort((a, b) => b.likes - a.likes);
