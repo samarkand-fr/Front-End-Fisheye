@@ -1,5 +1,4 @@
 // Import statements
-// import { mediaFactory } from '../factories/mediaFactory.js';
 import { navNext, navPrev, getNavLightbox } from './lightboxHelpers.js';
 import { addListeners } from "../utils/createElements.js"
 import {createLightboxSlides} from "../factories/lightboxfactory.js";
@@ -7,6 +6,7 @@ import {createLightboxSlides} from "../factories/lightboxfactory.js";
 const lightboxClose = document.querySelector('.lightbox_close');
 const lightboxContainer = document.querySelector('.lightbox_container');
 const lightbox = document.getElementById('contact_lightbox');
+
 
 // Event listeners
 document.addEventListener('keydown', (e) => {
@@ -79,5 +79,6 @@ export function openLightbox(id, medias) {
 function closeLightbox() {
     lightbox.style.display = 'none';
     lightboxContainer.innerHTML = '';
+    
 }
 

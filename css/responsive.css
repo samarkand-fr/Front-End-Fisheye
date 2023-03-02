@@ -5,6 +5,12 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+   .lightbox_next{
+    right: 0;
+   }
+   .lightbox_prev{
+    left: 0;
+   }
 }
 
 @media screen and (max-width: 1120px){
@@ -19,8 +25,64 @@
     .sort{
         margin-top: 20px;
     }
+    .lightbox_container   {
+        width: 95%;
+        height: 100%;
+      }
+      .lightbox_next{
+        right: 0;
+       }
+       .lightbox_prev{
+        left: 0;
+       }
 }
-
+@media screen and (max-width: 992px){
+    .photograph-header .info{
+        margin-top: 20px;
+    }
+    .contact_button{
+        bottom: 20px;
+        left: 70px;
+    }
+    .select-menu__selected-item {
+        padding: 16px 18px 15px 20px;
+        font-size: 15px;
+      }
+    .sort{
+        margin-top: 20px;
+    }
+    .select-menu {
+        width: 140px;
+        height: 55px;
+      }
+   
+    .select-items li {
+        width: 145px;
+        height: 40px;
+        font-size: 15px;
+      }
+    .select-items li:nth-child(1) {
+        height: 47px;
+        padding: 14px 20px 10px;
+      }
+     
+     .lightbox_container   {
+        width: 95%;
+        height: auto;
+      } 
+      .lightbox_container .slides{
+        align-self: center;
+      }
+      .lightbox_close{
+        right:0
+      }
+      .lightbox_prev{
+      left: 0;
+      }
+      .lightbox_next{
+        right: 0;
+        }
+}
 @media screen and (max-width: 830px){
     .photograph-header article h1{
         font-size: 3rem;
@@ -38,7 +100,13 @@
         margin-left: 20px;
         text-align: center;
     }
+    .lightbox_next{
+        right: 0px;
+    }
 
+    .lightbox_prev{
+        left: 0px;
+    }
     .contact_button{
         width: 150px;
         height: 60px;
@@ -57,15 +125,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
-
-    .lightbox_next,
-    .lightbox_prev{
-        right: 0px;
-    }
-
-    .lightbox_prev{
-        left: 0px;
-    }
+   
 }
 
 @media screen and (max-width: 715px){
@@ -121,7 +181,6 @@
         width: 100%;
     }
 
-
     .modal header p{
         margin-top: 70px;
         font-size: 3rem;
@@ -142,6 +201,11 @@
     .lightbox_close{
         right: 0px;
     }
+
+    .lightbox_prev{
+       left : 0px;
+    }
+      
 }
 
 
@@ -181,8 +245,7 @@
         font-size: 0.6rem;
     }
 
-    .lightbox_next,
-    .lightbox_prev{
+    .lightbox_next{
         right: 0px;
     }
 
@@ -265,6 +328,10 @@
     .galleryPhotos{
         margin-left: 11px;
     }
+    .lightbox_close{
+        font-size: 10px;
+    }
+
 
 }
 

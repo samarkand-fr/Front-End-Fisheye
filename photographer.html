@@ -4,18 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow"/>
+    <meta name="robots" content="index,follow">
     <title>Fisheye, nouvelle plateforme de photographes</title>
     <meta name="description" content="Fisheye par openclassrooms. La nouvelle plateforme de photographes">
-    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" >
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" >
     <script src="https://kit.fontawesome.com/0b6d538c32.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="./assets/favicon.png"> 
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
 </head>
 
   <body>
-    <header>
+    <header >
       <a href="./index.html" tabindex="1">
           <img src="./assets/images/logo.png" alt="Logo Fisheye Home page" class="logo">
         </a>
@@ -26,43 +26,42 @@
         
         <button class="btn-signup contact_button"  tabindex="0">Contactez-moi</button>
       </div>
-
-       <!-- Sort  -->
     
-    <section class="custom-select photograph_medias ">
-      <div class="sort " >
-        <label  for="sorted">Trier par</label>  
-        <ul class="select menuSelect"   tabindex="0" >
-          <li>
-            <input class="select_close " type="radio" name="customselect"  value="pop" aria-label="filter par popularité" id="customselect-pop"  />
-            <label class="select_label select_label-placeholder">Popularité </label>
+    
+  <!--------------- sort --------------- -->
+    <form class="select-menu-form sort" name="select-menu-form" method="get" action="#" novalidate>
+      <p id="select-menu-label" class="select-menu-form__label">Trier par</p>
+    
+      <div class="select-menu" >
+        <button
+          type="button"
+          id="select-menu-trigger"
+          class="select-menu__selected-item"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-labelledby="select-menu-label select-menu-trigger"
+          tabindex="0"
+        >
+          Popularité
+          <span class="fas fa-chevron-down select-menu__arrow"></span>
+        </button>
+        <ul
+          class="select-items select-hide"
+          role="listbox"
+          tabindex="-1"
+          aria-labelledby="select-menu-label"
+          aria-activedescendant="popularity"
+        >
+          <li  class="select-menu__arrow" id="popularity" role="option" aria-selected="true">Popularité
+            <span class="fas fa-chevron-up select-menu__arrow"></span>
           </li>
-      
-          <li class="select_items" >
-            <input class="select_expand " type="radio" name="customselect" id="customselect-opener"  value="pop" aria-labelledby="filter par popularité"/>
-            <label class="select_closeLabel" for="customselect-pop"></label>
           
-            <ul class="select_options"  >
-           
-              <li class="select_option">
-                <input class="select_input" type="radio" name="customselect" id="customselect-date" value="date" aria-label="date" aria-labelledby="filter par date " />
-                <label class="select_label" for="customselect-date"><span class="border-top">Date</span></label>
-              </li>
-      
-              <li class="select_option" >
-                <input class="select_input" type="radio" name="customselect" id="customselect-titre" value="titre" aria-label="titre" aria-labelledby="filter par titre"  />
-                <label class="select_label" for="customselect-titre"><span class="border-top">Titre</span></label>
-              </li>
-      
-            </ul>
-      
-            <label class="select_expandLabel" for="customselect-opener"></label>
-          </li>
+          <li id="date" role="option" aria-selected="false">Date</li>
+          <li id="title" role="option" aria-selected="false">Titre</li>
         </ul>
       </div>
-      </section> 
-      
-      
+    </form>
+    
       <section  class="galleryPhotos" aria-label="gallery photos">
       </section>
       
@@ -72,7 +71,7 @@
 				    <header>
               <div id="header_modal">
                 <p class="contact" tabindex="1"></p>
-                <img class="close" src="./assets/icons/close.svg" tabindex="0" role="img" alt="fermer le formulaire"/>
+                <img class="close" src="./assets/icons/close.svg" tabindex="0" role="img" alt="fermer le formulaire">
               </div>
             </header>
 
@@ -80,17 +79,17 @@
 
 					    <div class="formData ">
 						    <label for="first" tabindex="0">Prénom</label><br>
-                <input class="text-control"   aria-label=" Entrez votre prénom" aria-labelledby="first Name" type="text" id="first" name="first" minlength="2" placeholder="votre prénom ici"  autocomplete="off" /><br>
+                <input class="text-control"   aria-label=" Entrez votre prénom" aria-labelledby="first" type="text" id="first" name="first" minlength="2" placeholder="votre prénom ici"  autocomplete="off" ><br>
 						  </div>
 
               <div class="formData ">
                 <label for="last" tabindex="0">Nom</label><br>
-                <input class="text-control" aria-label="Entrez votre nom" aria-labelledby="last Name"  type="text" id="last" name="last"  minlength="2" placeholder="votre nom ici"  autocomplete="off" ><br>
+                <input class="text-control" aria-label="Entrez votre nom" aria-labelledby="last"  type="text" id="last" name="last"  minlength="2" placeholder="votre nom ici"  autocomplete="off" ><br>
               </div>
 
               <div class="formData ">
                 <label for="email" tabindex="0">Email</label><br>
-                <input class="text-control" aria-labelledby="email" aria-label="Entrez votre adresse email" type="email" id="email" name="email" placeholder="Exemple : email@domaine.com" autocomplete="off" /><br>
+                <input class="text-control" aria-labelledby="email" aria-label="Entrez votre adresse email" type="email" id="email" name="email" placeholder="Exemple : email@domaine.com" autocomplete="off" ><br>
               </div>
 
               <div class=" formData ">
@@ -104,7 +103,7 @@
     </main>
     
     <!-- Lightbox -->
-    <aside  id="contact_lightbox" aria-label="image closeup view"  tabindex="-1">
+    <aside  id="contact_lightbox" aria-label="image closeup view"  role="dialog" tabindex="-1" class=".lightbox-modal-content">
       <div class="lightbox" role="dialog">
             <button class="lightbox_close" aria-label="close dialog">Fermer</button>
             <button class="lightbox_next" aria-label="next image">Suivant</button>
@@ -115,7 +114,7 @@
     
     
     <footer aria-label="count likes & price">
-      <p id="total_likes" aria-label="number of likes"></p>
+      <h1 id="total_likes" aria-label="number of likes"></h1>
       <span class="like">
         <strong class="fas fa-heart heart-fas"></strong>
       </span>
@@ -124,6 +123,5 @@
 
     
      <script src="./scripts/pages/photographer.js" type="module"></script>
-     <script src="./scripts/utils/contactForm.js" type="module"></script> 
    </body>
 </html>

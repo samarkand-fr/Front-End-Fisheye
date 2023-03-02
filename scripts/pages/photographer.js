@@ -4,7 +4,8 @@ import { mediaFactory,photographerFactory } from '../factories/mediaFactory.js';
 import   {getCardHeader}  from '../factories/photographerHeader.js';
 import { openLightbox } from '../utils/lightbox.js';
 import { numberLikes } from '../utils/likes.js';
-import { menuSelect, selectMedia } from '../utils/sorting.js';
+import { } from "../utils/sorting.js";
+import {} from "../utils/contactForm.js";
 
 // displaying photographer's media
 async function displayData(photographers) {
@@ -29,11 +30,8 @@ async function init() {
 }
 init();
 
-
-
 // function that displays media of a photographer 
 export async function displayMedia(medias) {
-   
     const photographersSection = document.querySelector('.galleryPhotos');
     photographersSection.innerHTML='';
     
@@ -59,25 +57,18 @@ export async function displayMedia(medias) {
     numberLikes();
 }
 
-// data medias
-export async function initMedias() {
-    const  medias  = await getMedias();
-   
-    const idRequest = window.location.href.split('?')[1];
-    const media =  await medias.filter(media => media.photographerId == idRequest);
-    displayMedia(media);
+let medias; // Declare the medias variable outside of the function inorder to export it to the sorting file
 
-// addeventlisener to function menuselect to  track  all changes 
-    menuSelect.addEventListener('change', function () {
-        selectMedia(media);
-        console.log(menuSelect);
-      });
-  
+export async function initMedias() {
+  medias = await getMedias();
+
+  const idRequest = window.location.href.split('?')[1];
+  const media = await medias.filter(media => media.photographerId == idRequest);
+  displayMedia(media);
+
 }
+
 initMedias();
 
-
-
-
-
-
+// Export the media array
+export { medias };
