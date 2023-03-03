@@ -264,6 +264,13 @@
     .sort{
         margin-left: 20px;
     }
+    .contact_button{
+        left: 121px;
+        bottom: -15px;
+    }
+    .select-menu-form{
+        margin:  5px 25px;
+      }
 }
 
 @media screen and (max-width: 400px){
@@ -295,6 +302,13 @@
     .error span{
         font-size: 0.5rem;
     }
+    .contact_button{
+        left: 121px;
+        bottom: 0;
+    }
+    .select-menu-form{
+      margin:  5px 25px;
+    }
 }
 
 @media screen and (max-width: 375px){
@@ -309,9 +323,12 @@
     .photograph-header .info{
         text-align: center;
     }
-
+    .photograph-header .info p{
+       font-size: medium;
+    }
     .contact_button{
         left: 121px;
+        top: -10px;
     }
 
     .photograph-header article img{
@@ -331,7 +348,14 @@
     .lightbox_close{
         font-size: 10px;
     }
-
+    .select-items {
+        position: absolute;
+        top: 10px;
+        z-index: 99;
+      }
+      .select-menu__selected-item {
+        margin-top: 10px;
+      }
 
 }
 

@@ -3,11 +3,11 @@ const closeBtn = document.querySelector('.close');
 const contactBtn = document.querySelector('.contact_button');
 const modalbg = document.querySelector('#contact_modal');
 const inputs = Array.from(document.forms.reserve.querySelectorAll('input,textarea'));
-const form = document.querySelector('form');
+const form =  document.forms["reserve"];;
 const firstName = document.getElementById('first');
 
 // object of input data
-const inputValues = {};
+const inputValues = [];
  
 // *****************************************************
 // Event listeners
@@ -60,7 +60,6 @@ const setErrorMessage = (element, message) => {
 //depends on validation rules 
 const setError = (element, etatError) => { 
         element.setAttribute('data-error-visible', etatError);
-      console.log('function2');
         element.parentElement.setAttribute('data-error-visible', etatError);
 }
 // a function that removes the attribute from an element
@@ -164,7 +163,6 @@ const messageValidation = () => {
 // track the events of input fields when the user clicks on them 
 inputs.forEach((field) => {
    field.addEventListener('input', (e) => {
-    console.log(e.target.id);
         switch (e.target.id) {
            
         case 'first':

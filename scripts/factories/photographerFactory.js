@@ -1,4 +1,4 @@
-import {createtagElement,createHeadingElement} from "../utils/createElements.js";
+import {createtagElement,createHeadingElement} from "../utils/helpers.js";
 
 //  Function  that creates  card of photographers "home page"
 export function getCard(photographer) {

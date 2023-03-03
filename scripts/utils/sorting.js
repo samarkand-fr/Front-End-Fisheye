@@ -1,70 +1,111 @@
 // import statements
 import { displayMedia } from '../pages/photographer.js';
-import { medias} from '../pages/photographer.js'; 
+import { medias } from '../pages/photographer.js';
+import { addListeners } from './helpers.js';
 
+// Selectors
 const selectLabel = document.querySelector('.select-menu__selected-item');
 const selectArrow = document.querySelector('.select-menu__arrow');
 const selectItems = document.querySelector('.select-items');
 const selectOptions = selectItems.querySelectorAll('li');
 
-selectLabel.addEventListener('click', () => {
+// Event listeners
+    addListeners(selectLabel, {
+                'click': handleSelectLabelClick
+              });
+              // the code loops over the selectOptions array using forEach, 
+              // and adds a click event listener to each option element using addListeners:
+            selectOptions.forEach((option) => {
+              addListeners(option, {
+                'click': handleOptionClick
+              });
+    });
+    // the code adds a keydown event listener to selectItems
+    addListeners(selectItems, {
+      'keydown': handleKeyDown
+    });
+
+
+// Function to handle select label click
+function handleSelectLabelClick() {
   selectLabel.setAttribute('aria-expanded', (selectLabel.getAttribute('aria-expanded') === 'false') ? 'true' : 'false');
-  selectArrow.classList.toggle('fa-chevron-down');
-  selectArrow.classList.toggle('fa-chevron-up');
-  selectItems.classList.toggle('select-hide');
-});
-
-selectLabel.addEventListener('keydown', (event) => {
-  const key = event.code;
-  const currentIndex = Array.from(selectOptions).indexOf(document.activeElement);
-  const lastIndex = selectOptions.length - 1;
-  let nextIndex;
-
-  switch (key) {
-    case 'ArrowDown':
-      event.preventDefault();
-      nextIndex = (currentIndex < lastIndex) ? currentIndex + 1 : 0;
-      break;
-    case 'ArrowUp':
-      event.preventDefault();
-      nextIndex = (currentIndex > 0) ? currentIndex - 1 : lastIndex;
-      break;
-    default:
-      return;
-  }
-
-  selectOptions[nextIndex].focus();
-});
-
-
-selectOptions.forEach((option) => {
-  option.addEventListener('click', () => {
-    const selectedText = option.textContent;
-    selectLabel.textContent = selectedText;
-    selectLabel.setAttribute('aria-expanded', 'false');
-    selectArrow.classList.remove('fa-chevron-up');
-    selectArrow.classList.add('fa-chevron-down');
-    selectItems.classList.add('select-hide');
-    const selectedType = option.getAttribute('id');
-    const sortedMedia = sortingMedia(medias, selectedType);
-    displayMedia(sortedMedia);
-  });
-});
-
-export function selectMedia(media) {
-  const sortedMedia = sortingMedia(media, selectItems);
-  displayMedia(sortedMedia);
+  toggleChevron();
+  toggleSelectHide();
+  focusFirstOption();
+}
+// Function to handle option click
+function handleOptionClick() {
+      const selectedType = this.getAttribute('id');
+      handleSelection(selectedType);
 }
 
-export function sortingMedia(media, type) {
-  switch (type) {
+// Function to handle arrow and enter key events
+function handleKeyDown(event) {
+      const key = event.code;
+      const currentIndex = Array.from(selectOptions).indexOf(document.activeElement);
+      const lastIndex = selectOptions.length - 1;
+      let nextIndex;
+
+      switch (key) {
+      case 'ArrowDown':
+          event.preventDefault();
+          nextIndex = (currentIndex < lastIndex) ? currentIndex + 1 : 0;
+          // moves focus to the next item in the list.
+          selectOptions[nextIndex].focus();
+      break;
+      case 'ArrowUp':
+          event.preventDefault();
+          nextIndex = (currentIndex > 0) ? currentIndex - 1 : lastIndex;
+          // moves focus to the previous item in the list
+          selectOptions[nextIndex].focus();
+      break;
+      case 'Enter':
+          event.preventDefault();
+          const selectedType = selectOptions[currentIndex].getAttribute('id');
+          handleSelection(selectedType);
+      break;
+      default:
+  return;
+}
+}
+
+// Function to toggle chevron icon
+function toggleChevron() {
+    selectArrow.classList.toggle('fa-chevron-down');
+    selectArrow.classList.toggle('fa-chevron-up');
+}
+
+// Function to toggle select-hide class
+function toggleSelectHide() {
+    selectItems.classList.toggle('select-hide');
+}
+
+// Function to focus first option
+function focusFirstOption() {
+    selectOptions[0].focus();
+}
+
+// Function to handle selection
+function handleSelection(selectedType) {
+      selectLabel.textContent = selectedType;
+      selectLabel.setAttribute('aria-expanded', 'false');
+      selectArrow.classList.remove('fa-chevron-up');
+      selectArrow.classList.add('fa-chevron-down');
+      selectItems.classList.add('select-hide');
+      const sortedMedia = sortingMedia(medias, selectedType);
+      displayMedia(sortedMedia);
+}
+
+// Function to sort medias according to its type
+function sortingMedia(media, type) {
+    switch (type) {
     case 'popularity':
-      return media.sort((a, b) => b.likes - a.likes);
+        return media.sort((a, b) => b.likes - a.likes);
     case 'date':
-      return media.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return media.sort((a, b) => new Date(b.date) - new Date(a.date));
     case 'title':
-      return media.sort((a, b) => a.title.localeCompare(b.title));
+        return media.sort((a, b) => a.title.localeCompare(b.title));
     default:
-      return media;
-  }
+        return media;
+   }
 }

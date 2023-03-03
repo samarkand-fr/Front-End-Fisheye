@@ -1,5 +1,5 @@
 // Import statements
-import { createtagElement } from "../utils/createElements.js";
+import { createtagElement } from "../utils/helpers.js";
 
 export const lightboxCard = (media) => {
   const { video, image, title, id, photographerId } = media;

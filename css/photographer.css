@@ -74,25 +74,36 @@ header .logo{
 }
 
 /***********Sort***********/
-
+.select-menu-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 100px;
+    gap:40px;
+    font-size: 20px;
+    margin-top: 30px;
+}
 .select-menu{
   width: 170px;
   height: 70px;
   position: relative;
   line-height: 1.5;
-  /*hide the items when the select box is closed:*/
+  margin-bottom: 10px;
 }
 
 .select-menu__selected-item {
   width: 100%;
-  padding:  23px 20px 14px;
+  padding:  23px 18px 23px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   background-color: #901C1C;
-  font-size: 16px;
+  font-size: 19px;
   cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  border: none;
 }
 
 .select-menu__arrow {
@@ -100,6 +111,7 @@ header .logo{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: larger;
 }
  .select-items {
   position: absolute;
@@ -114,7 +126,7 @@ header .logo{
  .select-items li {
   width: 170px;
   height: 70px;
-  padding:  23px 20px 14px;
+  padding:  14px 18px 14px 18px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -122,7 +134,8 @@ header .logo{
   align-items: center;
   color: #fff;
   background-color: #901C1C;
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: bold;
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s, color 0.3s;
@@ -148,12 +161,12 @@ header .logo{
 }
 .select-items li:nth-child(1) {
   height: 60px;
-  padding: 23px 20px 14px;
+  padding:  23px 20px 14px;
   border-radius: 5px 5px 0 0;
 }
 
  .select-items li:nth-child(3) {
-  padding: 23px 20px 14px;
+  padding:  14px 20px 11px;
   border-radius: 0 0 5px 5px;
 }
  .select-items li:nth-child(3)::after {
@@ -162,26 +175,6 @@ header .logo{
  .select-hide {
   display: none;
 }
-
-.sort{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 100px;
-  gap:40px;
-  font-size: 20px;
-  margin-top: 30px;
-}
-/* .fa-chevron-down{
-  font-size: large;
-  color: #fff;
-  background: url(../assets/icons/chevron-down.svg) ;
-} */
-/* .fa-chevron-up{
-  font-size: large;
-  color: #fff;
-  background: url(../assets/icons/chevron-up.svg) ;
-} */
 
 /********Gallery photos***********/
 .galleryPhotos{

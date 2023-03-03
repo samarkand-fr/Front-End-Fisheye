@@ -1,6 +1,6 @@
 // Import statements
 import { navNext, navPrev, getNavLightbox } from './lightboxHelpers.js';
-import { addListeners } from "../utils/createElements.js"
+import { addListeners } from "./helpers.js"
 import {createLightboxSlides} from "../factories/lightboxfactory.js";
 // DOM elements
 const lightboxClose = document.querySelector('.lightbox_close');

@@ -17,12 +17,12 @@ export function createtagElement(tag, attributes = []) {
     return tag;
   }
 
-  // The "element" parameter is the DOM element to which the event listeners will be added.
-  //  The "events" parameter is an object that contains 
-  // the events to be added and their corresponding functions.
+  // addListeners() is a helper function 
+  // takes an element and an object of event listeners as arguments,
+  //  and loops over the object
+  //  to add each listener to the element using addEventListener.
+  // ** avoid code duplication if multiple event listeners need to be added to the same element.
 
-// The function then iterates through the "events" object using a for...in loop 
-// and adds each event and its corresponding function to the "element" using the addEventListener method.
   export function addListeners(element, events) {
     for (let event in events) {
       element.addEventListener(event, events[event]);

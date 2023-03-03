@@ -15,24 +15,25 @@
 </head>
 
   <body>
+    <!-- header  -->
     <header >
       <a href="./index.html" tabindex="1">
           <img src="./assets/images/logo.png" alt="Logo Fisheye Home page" class="logo">
         </a>
     </header>
 
+   <!-- main section  -->
     <main  id="main" aria-hidden="false">
       <div class="photograph-header" aria-label="information photographer">
         
         <button class="btn-signup contact_button"  tabindex="0">Contactez-moi</button>
       </div>
-    
-    
+
   <!--------------- sort --------------- -->
-    <form class="select-menu-form sort" name="select-menu-form" method="get" action="#" novalidate>
+    <form class="select-menu-form " name="select-menu-form" method="get" action="#" novalidate>
       <p id="select-menu-label" class="select-menu-form__label">Trier par</p>
     
-      <div class="select-menu" >
+      <div class="select-menu" tabindex="0">
         <button
           type="button"
           id="select-menu-trigger"
@@ -40,24 +41,22 @@
           aria-haspopup="listbox"
           aria-expanded="false"
           aria-labelledby="select-menu-label select-menu-trigger"
-          tabindex="0"
-        >
+          >
           Popularité
-          <span class="fas fa-chevron-down select-menu__arrow"></span>
+          <span class="fas  fa-chevron-down select-menu__arrow"></span>
         </button>
-        <ul
-          class="select-items select-hide"
-          role="listbox"
-          tabindex="-1"
-          aria-labelledby="select-menu-label"
-          aria-activedescendant="popularity"
-        >
-          <li  class="select-menu__arrow" id="popularity" role="option" aria-selected="true">Popularité
-            <span class="fas fa-chevron-up select-menu__arrow"></span>
-          </li>
-          
-          <li id="date" role="option" aria-selected="false">Date</li>
-          <li id="title" role="option" aria-selected="false">Titre</li>
+        
+        <ul class="select-items select-hide"
+              role="listbox"
+              tabindex="-1"
+              aria-labelledby="select-menu-label"
+              aria-activedescendant="popularity" >
+                  <li tabindex="0" class="select-menu__arrow" id="popularity" role="option" aria-selected="true">Popularité
+                    <span class="fas fa-chevron-up select-menu__arrow"></span>
+                  </li>
+                          
+                  <li tabindex="0" id="date" role="option" aria-selected="false">Date</li>
+                  <li tabindex="0" id="title" role="option" aria-selected="false">Titre</li>
         </ul>
       </div>
     </form>
@@ -65,7 +64,7 @@
       <section  class="galleryPhotos" aria-label="gallery photos">
       </section>
       
-      <!-- Form -->
+      <!-- Form contact -->
         <div id="contact_modal"  tabindex="-1"  aria-label="modal transparent background">
 			    <div class="modal" role="dialog">
 				    <header>
@@ -112,7 +111,7 @@
       </div>
     </aside>
     
-    
+    <!-- footer section  -->
     <footer aria-label="count likes & price">
       <h1 id="total_likes" aria-label="number of likes"></h1>
       <span class="like">

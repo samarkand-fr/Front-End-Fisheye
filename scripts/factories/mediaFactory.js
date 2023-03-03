@@ -1,5 +1,5 @@
 // Import statements
-import {createtagElement} from "../utils/createElements.js";
+import {createtagElement} from "../utils/helpers.js";
 
 export function mediaFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;

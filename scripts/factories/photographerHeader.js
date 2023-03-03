@@ -1,5 +1,5 @@
 // Import statements
-import {createHeadingElement,createtagElement} from "../utils/createElements.js";
+import {createHeadingElement,createtagElement} from "../utils/helpers.js";
 
  export function getCardHeader(photographer) {
     const { name, portrait, city, country, tagline } = photographer;
