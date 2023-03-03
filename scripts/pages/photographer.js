@@ -57,18 +57,17 @@ export async function displayMedia(medias) {
     numberLikes();
 }
 
-let medias; // Declare the medias variable outside of the function inorder to export it to the sorting file
-
 export async function initMedias() {
-  medias = await getMedias();
+    const medias = await getMedias();
+  
+    const idRequest = window.location.href.split('?')[1];
+    const media = await medias.filter(media => media.photographerId == idRequest);
+        displayMedia(media);
+        console.log(media);
+  
+    return media; // Return the filtered media array
+  }
+  
 
-  const idRequest = window.location.href.split('?')[1];
-  const media = await medias.filter(media => media.photographerId == idRequest);
-  displayMedia(media);
 
-}
 
-initMedias();
-
-// Export the media array
-export { medias };

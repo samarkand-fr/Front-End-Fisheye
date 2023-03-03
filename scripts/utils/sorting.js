@@ -1,6 +1,6 @@
 // import statements
 import { displayMedia } from '../pages/photographer.js';
-import { medias } from '../pages/photographer.js';
+import { initMedias  } from '../pages/photographer.js';
 import { addListeners } from './helpers.js';
 
 // Selectors
@@ -8,6 +8,10 @@ const selectLabel = document.querySelector('.select-menu__selected-item');
 const selectArrow = document.querySelector('.select-menu__arrow');
 const selectItems = document.querySelector('.select-items');
 const selectOptions = selectItems.querySelectorAll('li');
+
+// the media of the the choosed photographer
+const media = await initMedias();
+console.log(media);
 
 // Event listeners
     addListeners(selectLabel, {
@@ -92,7 +96,7 @@ function handleSelection(selectedType) {
       selectArrow.classList.remove('fa-chevron-up');
       selectArrow.classList.add('fa-chevron-down');
       selectItems.classList.add('select-hide');
-      const sortedMedia = sortingMedia(medias, selectedType);
+      const sortedMedia = sortingMedia(media, selectedType);
       displayMedia(sortedMedia);
 }
 
