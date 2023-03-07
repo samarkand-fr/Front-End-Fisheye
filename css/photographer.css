@@ -41,8 +41,6 @@ header .logo{
     position: absolute;
     bottom: 18%;
     right: 5%;
-    overflow-clip-margin: unset;
-    
 }
 
 .photograph-header article{
@@ -198,7 +196,6 @@ header .logo{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.028);
     border-radius: 5px;
     transition: 0.8s;
-    overflow-clip-margin: unset;
 }
 
 .galleryPhotos article img:hover,
