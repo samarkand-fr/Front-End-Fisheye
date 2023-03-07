@@ -1,0 +1,23 @@
+{
+  "name": "fisheye",
+  "description": "Projet 6, \r Créez un site accessible pour une plateforme de photographes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samarkand-fr/Front-End-Fisheye"
+  },
+  "keywords": [],
+  "author": "dina jannoun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samarkand-fr/Front-End-Fisheye/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.35.0"
+  }
+}
