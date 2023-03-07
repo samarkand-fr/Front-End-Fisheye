@@ -1,6 +1,6 @@
- // Import statements
- import {getCard} from "../factories/photographerFactory.js";
- import { getPhotographers } from "../utils/api.js";
+// Import statements
+import {getCard} from '../factories/photographerFactory.js';
+import { getPhotographers } from '../utils/api.js';
  
 
 //  data photographers

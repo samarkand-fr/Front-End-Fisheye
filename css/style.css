@@ -69,6 +69,7 @@ h1 {
     cursor: pointer;
     transition: 0.8s;
     display: flex;
+    overflow-clip-margin: unset;
 }
 
 .photographer_section article img:hover{

@@ -1,11 +1,11 @@
- /**********Responsive***********/
+/**********Responsive***********/
 
- @media screen and (max-width: 1220px){
+@media screen and (max-width: 1270px){
     .galleryPhotos{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-   .lightbox_next{
+   .lightbox_next,.lightbox_close{
     right: 0;
    }
    .lightbox_prev{
@@ -25,11 +25,7 @@
     .sort{
         margin-top: 20px;
     }
-    .lightbox_container   {
-        width: 95%;
-        height: 100%;
-      }
-      .lightbox_next{
+      .lightbox_next, .lightbox_close{
         right: 0;
        }
        .lightbox_prev{
@@ -42,7 +38,7 @@
     }
     .contact_button{
         bottom: 20px;
-        left: 70px;
+        left: 75px;
     }
     .select-menu__selected-item {
         padding: 16px 18px 15px 20px;
@@ -66,22 +62,21 @@
         padding: 14px 20px 10px;
       }
      
-     .lightbox_container   {
-        width: 95%;
-        height: auto;
+     .lightbox_container img {
+        width: 100%;
+        object-fit: cover;
       } 
-      .lightbox_container .slides{
+      .lightbox_container{
         align-self: center;
+        width: 70%;
       }
-      .lightbox_close{
+      .lightbox_close, .lightbox_next{
         right:0
       }
       .lightbox_prev{
       left: 0;
       }
-      .lightbox_next{
-        right: 0;
-        }
+      
 }
 @media screen and (max-width: 830px){
     .photograph-header article h1{
@@ -100,13 +95,21 @@
         margin-left: 20px;
         text-align: center;
     }
-    .lightbox_next{
+    .lightbox_next, .lightbox_close{
         right: 0px;
     }
 
     .lightbox_prev{
         left: 0px;
     }
+    .lightbox_container  {
+        width: 75%;
+        height: 400px;
+      }
+      .lightbox_container img{
+        width: 100%;
+        object-fit: cover;
+      }
     .contact_button{
         width: 150px;
         height: 60px;
@@ -198,13 +201,17 @@
         font-size: 0.7rem;
     }
 
-    .lightbox_close{
+    .lightbox_close, .lightbox_next{
         right: 0px;
     }
 
     .lightbox_prev{
        left : 0px;
     }
+    .lightbox_container   {
+        width: 75%;
+        height: 100%;
+      }
       
 }
 
@@ -216,6 +223,13 @@
 
     .galleryPhotos{
         margin-left: 77px;
+    }
+    .lightbox_close, .lightbox_close{
+        right: 0px;
+    }
+
+    .lightbox_prev{
+       left : 0px;
     }
 }
 
@@ -245,16 +259,12 @@
         font-size: 0.6rem;
     }
 
-    .lightbox_next{
+    .lightbox_next,.lightbox_close{
         right: 0px;
     }
 
     .lightbox_prev{
         left: 0px;
-    }
-
-    .lightbox_close{
-        right: 0px;
     }
 
     .galleryPhotos{
@@ -360,9 +370,3 @@
 }
 
 
-
-  
-
-
-
- 

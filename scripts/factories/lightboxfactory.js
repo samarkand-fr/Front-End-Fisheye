@@ -1,63 +1,61 @@
 // Import statements
-import { createtagElement } from "../utils/helpers.js";
+import { createtagElement } from '../utils/helpers.js';
 
 export const lightboxCard = (media) => {
-  const { video, image, title, id, photographerId } = media;
-  const sourcePath = `assets/medias/${photographerId}/`;
+    const { video, image, title, id, photographerId } = media;
+    const sourcePath = `assets/medias/${photographerId}/`;
 
- // displaying a video player on a webpage with an associated title. 
- // If the user's browser does not support HTML5 video,
-  // the text "Votre navigateur ne supporte pas la lecture de vidéos." will be displayed.
-  if (video) {
-    const videoSource = `${sourcePath}${video}`;
-    const videoElement = createtagElement('video', [
-      { name: 'controls', value: 'controls' },
-      { name: 'id', value: id },
-      { name: 'tabindex', value: '0' },
-      { name: 'title', value: `Vidéo de ${title}` }
-    ]);
-    const sourceElement = createtagElement('source', [
-      { name: 'src', value: videoSource },
-      { name: 'type', value: 'video/mp4' }
-    ]);
-    videoElement.appendChild(sourceElement);
-    videoElement.innerHTML += 'Votre navigateur ne supporte pas la lecture de vidéos.';
-    return `
+    // displaying a video player on a webpage with an associated title. 
+    // If the user's browser does not support HTML5 video,
+    // the text "Votre navigateur ne supporte pas la lecture de vidéos." will be displayed.
+    if (video) {
+        const videoSource = `${sourcePath}${video}`;
+        const videoElement = createtagElement('video', [
+            { name: 'controls', value: 'controls' },
+            { name: 'id', value: id },
+            { name: 'tabindex', value: '0' },
+            { name: 'title', value: `Vidéo de ${title}` }
+        ]);
+        const sourceElement = createtagElement('source', [
+            { name: 'src', value: videoSource },
+            { name: 'type', value: 'video/mp4' }
+        ]);
+        videoElement.appendChild(sourceElement);
+        videoElement.innerHTML += 'Votre navigateur ne supporte pas la lecture de vidéos.';
+        return `
       ${videoElement.outerHTML}
       <h3 tabindex="0">${title}</h3>
     `;
-  } else {
-    const imageSource = `${sourcePath}${image}`;
-    const imgElement = createtagElement('img', [
-      { name: 'src', value: imageSource },
-      { name: 'alt', value: `Photo de ${title}` },
-      { name: 'title', value: `Photo de ${title}` },
-      { name: 'id', value: id },
-      { name: 'tabindex', value: '0' }
-    ]);
-    return `
+    } else {
+        const imageSource = `${sourcePath}${image}`;
+        const imgElement = createtagElement('img', [
+            { name: 'src', value: imageSource },
+            { name: 'alt', value: `Photo de ${title}` },
+            { name: 'title', value: `Photo de ${title}` },
+            { name: 'id', value: id },
+            { name: 'tabindex', value: '0' }
+        ]);
+        return `
       ${imgElement.outerHTML}
       <h3 tabindex="0">${title}</h3>
     `;
-  }
+    }
 };
 
 // creating the slides for lightbox
 export const createLightboxSlides = (data) => {
-  const { photographerId } = data;
-  const sourcePath = `assets/medias/${photographerId}/`;
 
-  const getCardLightboxSlides = () => {
-  const mediaElement = lightboxCard(data);
-  const slideDiv = document.createElement("div");
-        slideDiv.classList.add("slides");
+    const getCardLightboxSlides = () => {
+        const mediaElement = lightboxCard(data);
+        const slideDiv = document.createElement('div');
+        slideDiv.classList.add('slides');
         slideDiv.innerHTML = mediaElement;
 
-  const titleElement = slideDiv.querySelector("h3");
+        const titleElement = slideDiv.querySelector('h3');
         titleElement.tabIndex = 0;
 
-  return slideDiv.outerHTML;
+        return slideDiv.outerHTML;
 
-  };
-  return {getCardLightboxSlides}
-}
+    };
+    return {getCardLightboxSlides};
+};

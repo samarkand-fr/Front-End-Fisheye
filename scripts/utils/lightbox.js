@@ -1,7 +1,7 @@
 // Import statements
 import { navNext, navPrev, getNavLightbox } from './lightboxHelpers.js';
-import { addListeners } from "./helpers.js"
-import {createLightboxSlides} from "../factories/lightboxfactory.js";
+import { addListeners } from '../utils/helpers.js';
+import {createLightboxSlides} from '../factories/lightboxfactory.js';
 // DOM elements
 const lightboxClose = document.querySelector('.lightbox_close');
 const lightboxContainer = document.querySelector('.lightbox_container');
@@ -27,12 +27,12 @@ function navigateLightbox(medias) {
     document.addEventListener('keydown', (e) =>{
         let nav;
         switch(e.key) {
-            case 'ArrowLeft' :
-                nav =  (medias) => { navPrev(medias);};
-                break; 
-            case 'ArrowRight': 
-                nav = (medias) => { navNext(medias);};
-                break;
+        case 'ArrowLeft' :
+            nav =  (medias) => { navPrev(medias);};
+            break; 
+        case 'ArrowRight': 
+            nav = (medias) => { navNext(medias);};
+            break;
         }
         if (nav) {
             nav(medias);
@@ -73,7 +73,7 @@ export function openLightbox(id, medias) {
             }
         });
     }
-};
+}
 
 // Close the lightbox
 function closeLightbox() {

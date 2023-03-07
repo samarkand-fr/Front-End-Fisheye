@@ -4,8 +4,8 @@ import { mediaFactory,photographerFactory } from '../factories/mediaFactory.js';
 import   {getCardHeader}  from '../factories/photographerHeader.js';
 import { openLightbox } from '../utils/lightbox.js';
 import { numberLikes } from '../utils/likes.js';
-import { } from "../utils/sorting.js";
-import {} from "../utils/contactForm.js";
+import {} from '../utils/sorting.js';
+import {} from '../utils/contactForm.js';
 
 // displaying photographer's media
 async function displayData(photographers) {
@@ -62,12 +62,8 @@ export async function initMedias() {
   
     const idRequest = window.location.href.split('?')[1];
     const media = await medias.filter(media => media.photographerId == idRequest);
-        displayMedia(media);
-        console.log(media);
+    displayMedia(media);
   
     return media; // Return the filtered media array
-  }
+}
   
-
-
-
