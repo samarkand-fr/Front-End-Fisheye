@@ -14,8 +14,8 @@ let media;
 initMedias().then((medias) => {
     media = medias;
     console.log(media);
-      // Event listeners
-      addListeners(selectLabel, {
+    // Event listeners
+    addListeners(selectLabel, {
         'click': handleSelectLabelClick
     });
     // the code loops over the selectOptions array using forEach, 
