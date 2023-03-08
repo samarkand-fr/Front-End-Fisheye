@@ -1,6 +1,10 @@
 // Import statements
 import { createtagElement } from '../utils/helpers.js';
 
+// constants
+const CONTROLS = 'controls';
+const TITLE = 'title';
+
 export const lightboxCard = (media) => {
     const { video, image, title, id, photographerId } = media;
     const sourcePath = `assets/medias/${photographerId}/`;
@@ -11,10 +15,10 @@ export const lightboxCard = (media) => {
     if (video) {
         const videoSource = `${sourcePath}${video}`;
         const videoElement = createtagElement('video', [
-            { name: 'controls', value: 'controls' },
+            { name: CONTROLS, value: CONTROLS},
             { name: 'id', value: id },
             { name: 'tabindex', value: '0' },
-            { name: 'title', value: `Vidéo de ${title}` }
+            { name: TITLE, value: `Vidéo de ${title}` }
         ]);
         const sourceElement = createtagElement('source', [
             { name: 'src', value: videoSource },
@@ -31,7 +35,7 @@ export const lightboxCard = (media) => {
         const imgElement = createtagElement('img', [
             { name: 'src', value: imageSource },
             { name: 'alt', value: `Photo de ${title}` },
-            { name: 'title', value: `Photo de ${title}` },
+            { name: TITLE, value: `Photo de ${title}` },
             { name: 'id', value: id },
             { name: 'tabindex', value: '0' }
         ]);

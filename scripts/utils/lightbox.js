@@ -15,7 +15,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Lightbox navigation
+// The navigateLightbox function is called to set the initial state of the lightbox
 function navigateLightbox(medias) {
     lightbox.style.display = 'block'; 
     const buttons = getNavLightbox();     
@@ -23,7 +23,9 @@ function navigateLightbox(medias) {
         buttons.nextButton.addEventListener('click', () => { navNext(medias);});
         buttons.prevButton.addEventListener('click', () => { navPrev(medias);});
     }
-
+    // When a key is pressed, the switch statement inside the callback function
+    //  determines whether the left or right arrow key was pressed, 
+    // and sets the nav variable to either navPrev or navNext
     document.addEventListener('keydown', (e) =>{
         let nav;
         switch(e.key) {
@@ -50,6 +52,8 @@ export function openLightbox(id, medias) {
             'click': () => {
                 const idRequest = window.location.href.split('?')[1];
                 const id = component.id;
+                // filterMedia variable is set to an array containing only the media items 
+                // that have a photographerId matching the idRequest. 
                 const filterMedia = medias.filter(media => `${media.photographerId}` === idRequest);
                 let mediaSelected = 0;
                 for (let i = 0; i < filterMedia.length; i++) {

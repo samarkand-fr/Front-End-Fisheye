@@ -1,6 +1,10 @@
 // Import statements
 import {createtagElement} from '../utils/helpers.js';
 
+// constants
+const TITLE = 'title';
+const CONTROLS = 'controls';
+
 export function mediaFactory(data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
   
@@ -22,9 +26,9 @@ export function mediaFactory(data) {
             playIcon.classList.add('far', 'fa-play-circle');
             mediaContainer.appendChild(playIcon);
             const videoElement = createtagElement('video', [
-                { name: 'title', value: `video de ${title}` },
+                { name: TITLE, value: `video de ${title}` },
                 { name: 'tabindex', value: '0' },
-                { name: 'controls', value: 'controls' },
+                { name: CONTROLS, value: CONTROLS},
                 { name: 'src', value: videos },
                 { name: 'type', value: 'video/mp4' },
             ]);
@@ -35,7 +39,7 @@ export function mediaFactory(data) {
             const imgElement = createtagElement('img', [
                 { name: 'src', value: picture },
                 { name: 'alt', value: `Photo de ${title}` },
-                { name: 'title', value: `picture de ${title}` },
+                { name: TITLE, value: `picture de ${title}` },
                 { name: 'id', value: id }
             ]);
 

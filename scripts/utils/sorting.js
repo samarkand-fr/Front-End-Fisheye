@@ -10,11 +10,10 @@ const selectOptions = selectItems.querySelectorAll('li');
 
 let media;
 
-// Initialize medias and then sort them according to the selected type
+// fetching the media data and making it available to other functions in the module.
 initMedias().then((medias) => {
     media = medias;
-    console.log(media);
-    // Event listeners
+    // Event listeners set up  for the dropdown menu.
     addListeners(selectLabel, {
         'click': handleSelectLabelClick
     });
@@ -32,20 +31,29 @@ initMedias().then((medias) => {
 });
 
 
-// Function to handle select label click
+// This function is called when the user clicks on the dropdown menu label. 
+// It toggles the aria-expanded attribute of the label,
+//  toggles the chevron icon, toggles the select-hide class of the dropdown menu, 
+// and focuses the first option in the menu.
 async function handleSelectLabelClick() {
     selectLabel.setAttribute('aria-expanded', (selectLabel.getAttribute('aria-expanded') === 'false') ? 'true' : 'false');
     toggleChevron();
     toggleSelectHide();
     focusFirstOption();
 }
-// Function to handle option click
+// This function is called when the user clicks on one of the options in the dropdown menu.
+//  It gets the ID attribute of the clicked option, 
+// and passes it to the handleSelection function.
 function handleOptionClick() {
     const selectedType = this.getAttribute('id');
     handleSelection(selectedType);
 }
 
-// Function to handle arrow and enter key events
+//This function is called when the user presses a key
+//while the dropdown menu is open. 
+// It checks which key was pressed (ArrowUp, ArrowDown, or Enter),
+// and performs the appropriate action (move focus to the previous or next option, 
+// or select the currently focused option).
 function handleKeyDown(event) {
     const key = event.code;
     // (document.activeElement)= property returns the currently focused element within the document.
@@ -77,23 +85,29 @@ function handleKeyDown(event) {
     }
 }
 
+// ---------helper functions-----------
+
 // Function to toggle chevron icon
 function toggleChevron() {
     selectArrow.classList.toggle('fa-chevron-down');
     selectArrow.classList.toggle('fa-chevron-up');
 }
 
-// Function to toggle select-hide class
+// Function to toggle the select-hide class of the dropdown menu
 function toggleSelectHide() {
     selectItems.classList.toggle('select-hide');
 }
 
-// Function to focus first option
+// Function to focus first option in the menu
 function focusFirstOption() {
     selectOptions[0].focus();
 }
+//--------------------------------------
 
-// Function to handle selection
+// This function is called when the user selects an option in the dropdown menu. 
+// It sets the label text to the selected option, closes the dropdown menu, 
+// and sorts the media array based on the selected criteria using the sortingMedia function. 
+// It then calls the displayMedia function with the sorted array as its argument.
 function handleSelection(selectedType) {
     selectLabel.textContent = selectedType;
     selectLabel.setAttribute('aria-expanded', 'false');
@@ -104,7 +118,8 @@ function handleSelection(selectedType) {
     displayMedia(sortedMedia);
 }
 
-// Function to sort medias according to its type
+// This function takes an array of media objects and a sorting criteria as its arguments,
+//  and returns a sorted copy of the array based on the sorting criteria
 function sortingMedia(media, type) {
     switch (type) {
     case 'popularity':

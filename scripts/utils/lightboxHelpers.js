@@ -2,11 +2,14 @@ import { lightboxCard } from '../factories/lightboxfactory.js';
 
 // getPosition()  Retrieves the position of the current image and return an integer
 export const getPosition = (medias) => {
+    // This line of code selects the first child element of the .slides element using the :first-child pseudo-class selector,
+    //  and then retrieves the value of its id attribute using the id property.
     const currentId = document.querySelector('.slides > :first-child').id;
 
     let mediaSelected = 0;
     for (let i = 0; i < medias.length; i++) {
         if (`${currentId}` === `${medias[i].id}`) {
+            // the index of the matching object is stored in the mediaSelected
             mediaSelected = i;
             break;
         }

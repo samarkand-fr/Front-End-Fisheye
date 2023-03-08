@@ -377,8 +377,8 @@ header .logo{
 .modal header img {
     cursor: pointer;
     position: absolute;
-    right: 3px;
-    top: 3px;
+    right: -10px;
+    top: -10px;
 }
 
 .modal header p {
@@ -396,7 +396,6 @@ form {
 
 form label {
     color: #312E2E;
-    margin-bottom: -20px;
     font-size: 2.2rem;
     font-weight: 400;
 }
