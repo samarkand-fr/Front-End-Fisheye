@@ -48,6 +48,7 @@ function handleOptionClick() {
 // Function to handle arrow and enter key events
 function handleKeyDown(event) {
     const key = event.code;
+    // (document.activeElement)= property returns the currently focused element within the document.
     const currentIndex = Array.from(selectOptions).indexOf(document.activeElement);
     const lastIndex = selectOptions.length - 1;
     let nextIndex;
@@ -111,7 +112,7 @@ function sortingMedia(media, type) {
     case 'date':
         return media.sort((a, b) => new Date(b.date) - new Date(a.date));
     case 'title':
-        return media.sort((a, b) => a.title.localeCompare(b.title));
+        return media.sort((a, b) => a.title.localeCompare(b.title));// method in Js used to compare two strings 
     default:
         return media;
     }
