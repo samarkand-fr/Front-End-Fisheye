@@ -80,7 +80,7 @@ header .logo{
     align-items: center;
     margin-left: 100px;
     gap:40px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 30px;
 }
 .select-menu{
@@ -99,7 +99,7 @@ header .logo{
   align-items: center;
   color: white;
   background-color: #901C1C;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   font-weight: bold;
   outline: none;
@@ -134,7 +134,7 @@ header .logo{
   align-items: center;
   color: #fff;
   background-color: #901C1C;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
   position: relative;
