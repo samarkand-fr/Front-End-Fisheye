@@ -122,11 +122,11 @@ function handleSelection(selectedType) {
 //  and returns a sorted copy of the array based on the sorting criteria
 function sortingMedia(media, type) {
     switch (type) {
-    case 'popularity':
+    case 'popularité':
         return media.sort((a, b) => b.likes - a.likes);
-    case 'date':
+    case 'Date':
         return media.sort((a, b) => new Date(b.date) - new Date(a.date));
-    case 'title':
+    case 'Titre':
         return media.sort((a, b) => a.title.localeCompare(b.title));// method in Js used to compare two strings 
     default:
         return media;

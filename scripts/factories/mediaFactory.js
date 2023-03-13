@@ -3,7 +3,6 @@ import {createtagElement} from '../utils/helpers.js';
 
 // constants
 const TITLE = 'title';
-const CONTROLS = 'controls';
 
 export function mediaFactory(data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
@@ -28,7 +27,6 @@ export function mediaFactory(data) {
             const videoElement = createtagElement('video', [
                 { name: TITLE, value: `video de ${title}` },
                 { name: 'tabindex', value: '0' },
-                { name: CONTROLS, value: CONTROLS},
                 { name: 'src', value: videos },
                 { name: 'type', value: 'video/mp4' },
             ]);

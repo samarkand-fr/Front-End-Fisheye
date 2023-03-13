@@ -29,6 +29,15 @@ window.addEventListener('keyup', (e) => {
     closeModalKey(e);
 });
 
+// This code adds an event listener to the last input field in the form ,
+//  and checks  if the "tab" key is pressed.
+//  the closeModal() function is called to close the modal.
+inputs[inputs.length - 1].addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+        closeModal();
+    }
+});
+
 /*********************************************** ***/
 // error messages object
 const errorMessages = {
